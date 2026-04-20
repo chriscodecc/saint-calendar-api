@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # 1. The Database Container
+  database:
+    image: postgres:15  
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: spring_admin
+      POSTGRES_PASSWORD: spring_admin
+      POSTGRES_DB: saint_calendar_db
+
+  # 2. Spring Boot Container
+  api:
+    build: .                
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database          
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/saint_calendar_db
+      SPRING_DATASOURCE_USERNAME: spring_admin
+      SPRING_DATASOURCE_PASSWORD: spring_admin
