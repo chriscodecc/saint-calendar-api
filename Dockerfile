@@ -1,5 +1,16 @@
-FROM eclipse-temurin:25
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Stage 1: Build the application
+FROM maven:3.9.6-eclipse-temurin-21 AS build
+WORKDIR /app
+
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run application
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+
+# copy the files from stage 1 into stage 2
+COPY --from=build /app/target/*.jar app.jar
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
 EXPOSE 8080

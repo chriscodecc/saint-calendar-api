@@ -10,6 +10,8 @@ services:
       POSTGRES_USER: spring_admin
       POSTGRES_PASSWORD: spring_admin
       POSTGRES_DB: saint_calendar_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
 
   # 2. Spring Boot Container
   api:
@@ -22,3 +24,5 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/saint_calendar_db
       SPRING_DATASOURCE_USERNAME: spring_admin
       SPRING_DATASOURCE_PASSWORD: spring_admin
+volumes: 
+  pg_data:

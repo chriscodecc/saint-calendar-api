@@ -40,17 +40,17 @@ public class Saint {
     @Column
     private String patronage;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String tropar;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String kondak; 
 
     @Column
-    private Boolean isMartyr;
+    private boolean isMartyr;
 
     public long getId() {
         return id;
@@ -116,11 +116,11 @@ public class Saint {
         this.kondak = kondak;
     }
 
-    public Boolean getIsMartyr() {
+    public boolean getIsMartyr() {
         return isMartyr;
     }
 
-    public void setIsMartyr(Boolean isMartyr) {
+    public void setIsMartyr(boolean isMartyr) {
         this.isMartyr = isMartyr;
     }
 }
