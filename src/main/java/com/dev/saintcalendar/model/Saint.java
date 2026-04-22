@@ -1,62 +1,52 @@
 package com.dev.saintcalendar.model;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Saint {
-
-    public Saint(){
-        
-    }
-    
-    public Saint(String name, int day, int month, String patronage, String description, String tropar, String kondakt, Boolean isMartyr){
-        this.name = name;
-        this.day = day;
-        this.month = month;
-        this.patronage = patronage;
-        this.description = description;
-        this.tropar = tropar;
-        this.kondak = kondakt;
-        this.isMartyr = isMartyr;
-    }  
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; 
+    private Long id;
 
-    @Column
-    private String name; 
-
-    @Column(name = "feast_day")
+    private String name;
+    @Column(name = "day") 
     private int day;
 
-    @Column(name = "feast_month")
+    @Column(name = "month") 
     private int month;
 
-    @Column
+    @Column(name = "is_martyr") 
+    private boolean isMartyr;
+
+    // UPDATE THE GETTER/SETTER names to be safe
+    public boolean isMartyr() { return isMartyr; }
+    public void setMartyr(boolean martyr) { isMartyr = martyr; }
     private String patronage;
+
+    private String tropar;
+    private String kondak;
+
+    
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(columnDefinition = "TEXT")
-    private String tropar;
+    @OneToMany(mappedBy = "saint", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Quote> quotes = new ArrayList<>();
 
-    @Column(columnDefinition = "TEXT")
-    private String kondak; 
+    // The Helper Method
+    public void addQuote(Quote quote) {
+        quotes.add(quote);
+        quote.setSaint(this);
+    }
 
-    @Column
-    private boolean isMartyr;
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,16 +62,16 @@ public class Saint {
         return day;
     }
 
-    public void setDay(int day) {
-        this.day = day;
+    public void setDay(int feastDay) {
+        this.day = feastDay;
     }
 
     public int getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
+    public void setMonth(int feastMonth) {
+        this.month = feastMonth;
     }
 
     public String getPatronage() {
@@ -100,6 +90,14 @@ public class Saint {
         this.description = description;
     }
 
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
+    }
+
     public String getTropar() {
         return tropar;
     }
@@ -116,11 +114,16 @@ public class Saint {
         this.kondak = kondak;
     }
 
-    public boolean getIsMartyr() {
+    public boolean isIsMartyr() {
         return isMartyr;
     }
 
     public void setIsMartyr(boolean isMartyr) {
         this.isMartyr = isMartyr;
     }
+
+
+  
+
+   
 }

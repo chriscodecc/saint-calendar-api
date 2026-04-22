@@ -1,0 +1,355 @@
+api-1  | 
+api-1  |   .   ____          _            __ _ _
+api-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+api-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+api-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+api-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+api-1  |  =========|_|==============|___/=/_/_/_/
+api-1  | 
+api-1  |  :: Spring Boot ::               (v3.5.13)
+api-1  | 
+api-1  | 2026-04-22T12:00:52.987Z  INFO 1 --- [saintcalendar] [           main] c.d.s.SaintCalendarApplication           : Starting SaintCalendarApplication v0.0.1-SNAPSHOT using Java 21.0.10 with PID 1 (/app/app.jar started by root in /app)
+api-1  | 2026-04-22T12:00:52.990Z DEBUG 1 --- [saintcalendar] [           main] c.d.s.SaintCalendarApplication           : Running with Spring Boot v3.5.13, Spring v6.2.17
+api-1  | 2026-04-22T12:00:52.991Z  INFO 1 --- [saintcalendar] [           main] c.d.s.SaintCalendarApplication           : No active profile set, falling back to 1 default profile: "default"
+api-1  | 2026-04-22T12:00:53.967Z  INFO 1 --- [saintcalendar] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+api-1  | 2026-04-22T12:00:54.047Z  INFO 1 --- [saintcalendar] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 1 JPA repository interface.
+api-1  | 2026-04-22T12:00:54.591Z  INFO 1 --- [saintcalendar] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+api-1  | 2026-04-22T12:00:54.607Z  INFO 1 --- [saintcalendar] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+api-1  | 2026-04-22T12:00:54.607Z  INFO 1 --- [saintcalendar] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+api-1  | 2026-04-22T12:00:54.635Z  INFO 1 --- [saintcalendar] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+api-1  | 2026-04-22T12:00:54.637Z  INFO 1 --- [saintcalendar] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1582 ms
+api-1  | 2026-04-22T12:00:54.956Z  INFO 1 --- [saintcalendar] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+api-1  | 2026-04-22T12:00:55.256Z  INFO 1 --- [saintcalendar] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@250d440
+api-1  | 2026-04-22T12:00:55.259Z  INFO 1 --- [saintcalendar] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+api-1  | 2026-04-22T12:00:55.304Z  INFO 1 --- [saintcalendar] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://database:5432/saint_calendar_db (PostgreSQL 15.15)
+api-1  | 2026-04-22T12:00:55.353Z  INFO 1 --- [saintcalendar] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+api-1  | 2026-04-22T12:00:55.357Z  INFO 1 --- [saintcalendar] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.024s)
+api-1  | 2026-04-22T12:00:55.378Z  INFO 1 --- [saintcalendar] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+api-1  | 2026-04-22T12:00:55.453Z  INFO 1 --- [saintcalendar] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+api-1  | 2026-04-22T12:00:55.466Z  INFO 1 --- [saintcalendar] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - Create saint table"
+api-1  | 2026-04-22T12:00:55.500Z  INFO 1 --- [saintcalendar] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - Create quote table"
+api-1  | 2026-04-22T12:00:55.527Z  INFO 1 --- [saintcalendar] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.025s)
+api-1  | 2026-04-22T12:00:55.647Z  INFO 1 --- [saintcalendar] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+api-1  | 2026-04-22T12:00:55.716Z  INFO 1 --- [saintcalendar] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.45.Final
+api-1  | 2026-04-22T12:00:55.751Z  INFO 1 --- [saintcalendar] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+api-1  | 2026-04-22T12:00:56.083Z  INFO 1 --- [saintcalendar] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+api-1  | 2026-04-22T12:00:56.145Z  WARN 1 --- [saintcalendar] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+api-1  | 2026-04-22T12:00:56.158Z  INFO 1 --- [saintcalendar] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+api-1  | 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+api-1  | 	Database driver: undefined/unknown
+api-1  | 	Database version: 15.15
+api-1  | 	Autocommit mode: undefined/unknown
+api-1  | 	Isolation level: undefined/unknown
+api-1  | 	Minimum pool size: undefined/unknown
+api-1  | 	Maximum pool size: undefined/unknown
+api-1  | 2026-04-22T12:00:57.018Z  INFO 1 --- [saintcalendar] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+api-1  | 2026-04-22T12:00:57.051Z  INFO 1 --- [saintcalendar] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+api-1  | 2026-04-22T12:00:57.510Z  WARN 1 --- [saintcalendar] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+api-1  | 2026-04-22T12:00:57.987Z  INFO 1 --- [saintcalendar] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+api-1  | 2026-04-22T12:00:58.000Z  INFO 1 --- [saintcalendar] [           main] c.d.s.SaintCalendarApplication           : Started SaintCalendarApplication in 5.544 seconds (process running for 6.209)
+api-1  | 2026-04-22T12:01:23.741Z  INFO 1 --- [saintcalendar] [omcat-handler-0] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+api-1  | 2026-04-22T12:01:23.741Z  INFO 1 --- [saintcalendar] [omcat-handler-0] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+api-1  | 2026-04-22T12:01:23.743Z  INFO 1 --- [saintcalendar] [omcat-handler-0] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+api-1  | 2026-04-22T12:01:24.441Z  INFO 1 --- [saintcalendar] [omcat-handler-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 388 ms
+api-1  | Hibernate: insert into saint (feast_day,description,is_martyr,kondak,feast_month,name,patronage,tropar) values (?,?,?,?,?,?,?,?)
+api-1  | Hibernate: insert into quote (saint_id,source,text) values (?,?,?)
+api-1  | 2026-04-22T12:01:36.636Z  WARN 1 --- [saintcalendar] [omcat-handler-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+api-1  | 2026-04-22T12:01:36.636Z ERROR 1 --- [saintcalendar] [omcat-handler-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (1, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).
+api-1  | 2026-04-22T12:01:36.650Z ERROR 1 --- [saintcalendar] [omcat-handler-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (1, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).] [insert into quote (saint_id,source,text) values (?,?,?)]; SQL [insert into quote (saint_id,source,text) values (?,?,?)]; constraint [saint_id" of relation "quote]] with root cause
+api-1  | 
+api-1  | org.postgresql.util.PSQLException: ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (1, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-6.3.3.jar!/:na]
+api-1  | 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-6.3.3.jar!/:na]
+api-1  | 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:116) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:47) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:682) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:293) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:274) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:324) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:394) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:308) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:803) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:751) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.CascadingActions$7.cascade(CascadingActions.java:302) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.CascadingActions$7.cascade(CascadingActions.java:292) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:572) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:494) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:255) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:606) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:536) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:497) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:255) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeAfterSave(AbstractSaveEventListener.java:521) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:320) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:761) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:745) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy132.persist(Unknown Source) ~[na:na]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:320) ~[spring-orm-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy132.persist(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:654) ~[spring-data-jpa-3.5.10.jar!/:3.5.10]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:515) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:284) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:720) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:174) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy136.save(Unknown Source) ~[na:na]
+api-1  | 	at com.dev.saintcalendar.service.SaintService.saveSaint(SaintService.java:39) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at com.dev.saintcalendar.service.SaintService$$SpringCGLIB$$0.saveSaint(<generated>) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at com.dev.saintcalendar.controller.SaintController.createNewSaint(SaintController.java:42) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at java.base/java.lang.VirtualThread.run(Unknown Source) ~[na:na]
+api-1  | 
+api-1  | Hibernate: insert into saint (feast_day,description,is_martyr,kondak,feast_month,name,patronage,tropar) values (?,?,?,?,?,?,?,?)
+api-1  | Hibernate: insert into quote (saint_id,source,text) values (?,?,?)
+api-1  | 2026-04-22T12:01:38.776Z  WARN 1 --- [saintcalendar] [mcat-handler-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23502
+api-1  | 2026-04-22T12:01:38.776Z ERROR 1 --- [saintcalendar] [mcat-handler-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (2, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).
+api-1  | 2026-04-22T12:01:38.779Z ERROR 1 --- [saintcalendar] [mcat-handler-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (2, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).] [insert into quote (saint_id,source,text) values (?,?,?)]; SQL [insert into quote (saint_id,source,text) values (?,?,?)]; constraint [saint_id" of relation "quote]] with root cause
+api-1  | 
+api-1  | org.postgresql.util.PSQLException: ERROR: null value in column "saint_id" of relation "quote" violates not-null constraint
+api-1  |   Detail: Failing row contains (2, The giver of every good and perfect gift has called upon us to m..., Traditional Attribution, null).
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157) ~[postgresql-42.7.10.jar!/:42.7.10]
+api-1  | 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-6.3.3.jar!/:na]
+api-1  | 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-6.3.3.jar!/:na]
+api-1  | 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:116) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:47) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:682) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:293) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:274) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:324) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:394) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:308) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:803) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:751) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.CascadingActions$7.cascade(CascadingActions.java:302) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.spi.CascadingActions$7.cascade(CascadingActions.java:292) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:572) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:494) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:255) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:606) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:536) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:497) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:255) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:194) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeAfterSave(AbstractSaveEventListener.java:521) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:320) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:136) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:177) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:95) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:79) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:761) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:745) ~[hibernate-core-6.6.45.Final.jar!/:6.6.45.Final]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy132.persist(Unknown Source) ~[na:na]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:320) ~[spring-orm-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy132.persist(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:654) ~[spring-data-jpa-3.5.10.jar!/:3.5.10]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:515) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:284) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:720) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:174) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.5.10.jar!/:3.5.10]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at jdk.proxy2/jdk.proxy2.$Proxy136.save(Unknown Source) ~[na:na]
+api-1  | 	at com.dev.saintcalendar.service.SaintService.saveSaint(SaintService.java:39) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.17.jar!/:6.2.17]
+api-1  | 	at com.dev.saintcalendar.service.SaintService$$SpringCGLIB$$0.saveSaint(<generated>) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at com.dev.saintcalendar.controller.SaintController.createNewSaint(SaintController.java:42) ~[!/:0.0.1-SNAPSHOT]
+api-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+api-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+api-1  | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.17.jar!/:6.2.17]
+api-1  | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.17.jar!/:6.2.17]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.53.jar!/:na]
+api-1  | 	at java.base/java.lang.VirtualThread.run(Unknown Source) ~[na:na]
+api-1  | 

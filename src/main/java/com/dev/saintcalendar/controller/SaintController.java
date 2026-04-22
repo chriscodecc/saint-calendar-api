@@ -39,6 +39,7 @@ public class SaintController {
 
     @PostMapping("/newSaint")
     public ResponseEntity<Saint> createNewSaint(@Valid @RequestBody SaintRequest saintRequest) {
+        System.out.println("DEBUG: Controller received the request!");
         Saint saved = service.saveSaint(saintRequest);
         return ResponseEntity.ok(saved);
     }

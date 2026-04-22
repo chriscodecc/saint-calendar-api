@@ -1,6 +1,9 @@
 package com.dev.saintcalendar.dto;
 
 import jakarta.validation.constraints.Min;
+
+import java.util.List;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 
@@ -20,5 +23,6 @@ public record SaintRequest(
     String description,
     String tropar,
     String kondak,
-    boolean isMartyr
+    boolean isMartyr,
+    List<QuoteRequest> quotes
 ) { } 

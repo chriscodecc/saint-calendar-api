@@ -39,15 +39,7 @@ public class SaintControllerTest {
 
     @Test
     void shouldReturnTheListsOfAllSaintsThisMonth()throws Exception{
-        Saint s1 = new Saint( 
-            "test1",
-            1,
-            2,
-            "patronage",
-            "seom text",
-            "tropar",
-            "kondak",
-            true);
+        Saint s1 = new Saint();
 
         List<Saint> saintList = new ArrayList<Saint>();
         saintList.add(s1);
@@ -62,15 +54,15 @@ public class SaintControllerTest {
     @Test
     void createAndSaveANewSaint() throws Exception{
 
-        Saint s1 = new Saint( 
-            "test1",
-            1,
-            2,
-            "patronage",
-            "seom text",
-            "tropar",
-            "kondak",
-            true);
+        Saint saint = new Saint();
+        saint.setName("Saint Nicholas");
+        saint.setDay(6);
+        saint.setMonth(12);
+        saint.setPatronage("Sailors");
+        saint.setDescription("The Bishop of Myra.");
+        saint.setTropar("The truth of things...");
+        saint.setKondak("In Myra, O Holy One...");
+        saint.setMartyr(false);
 
         SaintRequest request = new SaintRequest(
             "test1",
@@ -80,11 +72,12 @@ public class SaintControllerTest {
             "seom text", 
             "tropar", 
             "kondak", 
-            true);
+            true,
+        null);
 
         
         when(service.saveSaint(any(SaintRequest.class)))
-            .thenReturn(s1);
+            .thenReturn(saint);
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/api/saints/newSaint")
