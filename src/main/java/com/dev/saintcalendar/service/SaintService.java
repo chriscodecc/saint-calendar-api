@@ -1,7 +1,6 @@
 package com.dev.saintcalendar.service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dev.saintcalendar.dto.QuoteRequest;
 import com.dev.saintcalendar.dto.SaintRequest;
-import com.dev.saintcalendar.exeption.ExeptionHandelingController;
 import com.dev.saintcalendar.model.Quote;
 import com.dev.saintcalendar.model.Saint;
 import com.dev.saintcalendar.repository.SaintRepository;
@@ -29,7 +27,6 @@ public class SaintService {
     public Saint saveSaint(SaintRequest saintRequest) {
        Saint saint = new Saint();
     
-        // 2. Use Setters to fill in the data from the request
         saint.setName(saintRequest.name());
         saint.setDay(saintRequest.day());
         saint.setMonth(saintRequest.month());
@@ -37,7 +34,7 @@ public class SaintService {
         saint.setDescription(saintRequest.description());
         saint.setTropar(saintRequest.tropar());
         saint.setKondak(saintRequest.kondak());
-        saint.setIsMartyr(saintRequest.isMartyr());    
+        saint.setMartyr(saintRequest.isMartyr());    
                
         if (saint.getQuotes() == null) {
             saint.setQuotes(new ArrayList<>());
