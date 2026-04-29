@@ -14,4 +14,5 @@ public interface SaintRepository extends CrudRepository<Saint, Long>{
     Page<Saint> findByDayAndMonth(int day, int month, Pageable p);
     Page<Saint> findByMonth(int month, Pageable p);
     Page<Saint> findByPatronageContainingIgnoreCase(String patronage, Pageable p);
+    List<Saint> findAll();
 }

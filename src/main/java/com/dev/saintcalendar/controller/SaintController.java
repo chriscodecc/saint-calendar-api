@@ -52,6 +52,12 @@ public class SaintController {
     public Page<Saint> findByPatronageContainingIgnoreCase(@RequestParam String keyword, Pageable p) {
          return service.findByPatronageContainingIgnoreCase(keyword, p);
     }
+
+    @GetMapping("")
+    public List<Saint> gettAllSaints() {
+        return service.findeAll();
+    }
+    
     
     
     

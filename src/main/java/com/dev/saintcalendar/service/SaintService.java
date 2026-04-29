@@ -1,6 +1,7 @@
 package com.dev.saintcalendar.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -66,6 +67,10 @@ public class SaintService {
 
     public Page<Saint> findByPatronageContainingIgnoreCase(String patronage, Pageable p){
         return repository.findByPatronageContainingIgnoreCase(patronage, p);
+    }
+
+    public List<Saint> findeAll(){
+        return repository.findAll();
     }
     
 }

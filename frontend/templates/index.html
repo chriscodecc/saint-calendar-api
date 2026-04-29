@@ -1,0 +1,10 @@
+<h1>Saint Calendar</h1>
+<ul>
+    {% for saint in saints %}
+    <li>
+        <strong>{{ saint.name }}</strong> - 
+        Feast Day: {{ saint.day }}/{{ saint.month }}
+        {% if saint.is_martyr %} (Martyr) {% endif %}
+    </li>
+    {% endfor %}
+</ul>

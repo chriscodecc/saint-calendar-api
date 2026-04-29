@@ -24,5 +24,15 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/saint_calendar_db
       SPRING_DATASOURCE_USERNAME: spring_admin
       SPRING_DATASOURCE_PASSWORD: spring_admin
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5000:5000"
+    environment:
+      - BACKEND_URL=http://api:8080
+    depends_on:
+      - api
+      
 volumes: 
   pg_data:
