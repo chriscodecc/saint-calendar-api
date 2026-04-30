@@ -5,7 +5,8 @@ services:
   database:
     image: postgres:15  
     ports:
-      - "5432:5432"
+      # Host port | Container port
+      - "5433:5432"
     environment:
       POSTGRES_USER: spring_admin
       POSTGRES_PASSWORD: spring_admin

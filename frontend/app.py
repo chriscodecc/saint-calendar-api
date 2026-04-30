@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 import os
+import json
 
 app = Flask(__name__)
 
@@ -32,6 +33,28 @@ def home():
     
     except Exception as e:
         return f"Connection Failed: {e}"
+    
+@app.route("/saveSaint/", methods=['GET', 'POST'])
+def saveSaint():
+            saint = {
+                "name": request.form.get('name'),
+                "day": request.form.get('day'),
+                "month": request.form.get('month'),
+                "patronage": request.form.get('patronage'),
+                "tropar": request.form.get('tropar'),
+                "kondak": request.form.get('kondak'),
+                "description": request.form.get('description'),
+                "isMartyr": request.form.get('isMartyr') == 'on'
+            }
+            API_KEY = "Bearer my-super-secret-key-123"
+
+            # Key to standard HTTP header
+            headers = {
+                 "Authorization": f"Bearer {API_KEY}"
+            }
+
+            requests.post("http://api:8080/api/saints", json=saint, headers=headers)
+            return render_template("index.html", f_msg=saint)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

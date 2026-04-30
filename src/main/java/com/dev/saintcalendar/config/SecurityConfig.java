@@ -22,7 +22,7 @@ public class SecurityConfig {
     
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
+        /**http
             //Cross-Site Request Forgery
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests((authorize) -> authorize
@@ -31,8 +31,13 @@ public class SecurityConfig {
                             // TODO: TEMPORARILY
                             .requestMatchers("/error").permitAll()
                             .anyRequest()
-                            .authenticated());        
+                            .authenticated());  **/      
                             
-        return http.httpBasic(withDefaults()).build();
+        //return http.httpBasic(withDefaults()).build();
+        return  http.csrf(csrf -> csrf.disable())
+                    .authorizeHttpRequests((auth -> auth
+                                                    .anyRequest()
+                                                    .permitAll()))
+                .build();
     }
 }

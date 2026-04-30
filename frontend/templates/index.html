@@ -8,3 +8,37 @@
     </li>
     {% endfor %}
 </ul>
+
+<br><br>
+<h2>Create a Saint</h2>
+<form action="/saveSaint/", method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="day">Day:</label><br>
+    <input type="number" id="day" name="day"><br>
+
+    <label for="month">Month:</label><br>
+    <input type="number" id="month" name="month"><br>
+
+    <label for="patronage">patronage:</label><br>
+    <input type="text" id="patronage" name="patronage"><br>
+
+    <label for="tropar">tropar:</label><br>
+    <input type="text" id="tropar" name="tropar"><br>
+
+    <label for="kondak">kondak:</label><br>
+    <input type="text" id="kondak" name="kondak"><br>
+
+    <label for="description">description:</label><br>
+    <input type="text" id="description" name="description"><br>
+
+    <label for="isMartyr">Is a Martyr:</label><br>
+    <input type="checkbox" id="isMartyr" name="isMartyr"><br>
+
+    <button name="save_btn" type="submit"> Save</button>
+</form>
+
+{% if f_msg %}
+    {{ f_msg | tojson }} 
+{% endif %}

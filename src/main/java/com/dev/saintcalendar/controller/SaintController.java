@@ -12,11 +12,14 @@ import com.dev.saintcalendar.service.SaintService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +34,7 @@ public class SaintController {
 
     private static final Logger logger = LoggerFactory.getLogger(SaintController.class);
     private final SaintService service;
+    private final String EXPECTED_TOKEN = "Bearer my-super-secret-key-123";
 
     public SaintController(SaintService service){
         this.service = service;
@@ -38,7 +42,16 @@ public class SaintController {
     
 
     @PostMapping
-    public ResponseEntity<Saint> createNewSaint(@Valid @RequestBody SaintRequest saintRequest) {
+    public ResponseEntity<Saint> createNewSaint(
+        @RequestHeader(value = "Authorization", required = false) String authHeader,
+        @Valid @RequestBody SaintRequest saintRequest) {
+
+            if(authHeader == null || !authHeader.equals(EXPECTED_TOKEN)){
+                System.out.println("SECURITY ALERT: Blocked an unauthorized request!");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+            }
+
+        System.out.println("DEBUG JAVA RECEIVED AUTHORIZED DATA: " + saintRequest.name());
         Saint saved = service.saveSaint(saintRequest);
         return ResponseEntity.ok(saved);
     }
