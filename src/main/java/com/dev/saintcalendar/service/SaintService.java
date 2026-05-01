@@ -3,10 +3,12 @@ package com.dev.saintcalendar.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import com.dev.saintcalendar.dto.QuoteRequest;
 import com.dev.saintcalendar.dto.SaintRequest;
@@ -26,8 +28,8 @@ public class SaintService {
 
     @Transactional
     public Saint saveSaint(SaintRequest saintRequest) {
-       Saint saint = new Saint();
-    
+        Saint saint = new Saint();
+
         saint.setName(saintRequest.name());
         saint.setDay(saintRequest.day());
         saint.setMonth(saintRequest.month());
@@ -36,7 +38,7 @@ public class SaintService {
         saint.setTropar(saintRequest.tropar());
         saint.setKondak(saintRequest.kondak());
         saint.setMartyr(saintRequest.isMartyr());    
-               
+            
         if (saint.getQuotes() == null) {
             saint.setQuotes(new ArrayList<>());
         }
@@ -52,25 +54,22 @@ public class SaintService {
                 saint.addQuote(quote); 
             }
         }
-
-        // 3. Save exactly ONCE. 
-        // Hibernate will automatically INSERT the Saint, fetch the new ID, 
-        // and then INSERT the Quotes with the correct ID attached.
-        return repository.save(saint);
+        
+        return repository.save(saint);  
     }
 
-    public Page<Saint> findByMonth(int month, Pageable p){
+    public List<Saint> findByMonth(int month){
         if (month > 0 && month <= 12) {
-            return repository.findByMonth(month, p);
+            return repository.findByMonth(month);
         } throw new IllegalArgumentException("Month must be between 1 and 12");
     }
 
-    public Page<Saint> findByPatronageContainingIgnoreCase(String patronage, Pageable p){
-        return repository.findByPatronageContainingIgnoreCase(patronage, p);
+    public List<Saint> findByPatronageContainingIgnoreCase(String patronage){
+        return repository.findByPatronageContainingIgnoreCase(patronage);
     }
 
     public List<Saint> findeAll(){
-        return repository.findAll();
+        return repository.findAllByOrderByMonthAsc();
     }
     
 }

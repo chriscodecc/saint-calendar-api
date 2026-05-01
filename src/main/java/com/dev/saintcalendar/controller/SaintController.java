@@ -2,24 +2,23 @@ package com.dev.saintcalendar.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.dev.saintcalendar.dto.SaintRequest;
 import com.dev.saintcalendar.model.Saint;
-import com.dev.saintcalendar.repository.SaintRepository;
 import com.dev.saintcalendar.service.SaintService;
 
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.apache.coyote.BadRequestException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +43,7 @@ public class SaintController {
     @PostMapping
     public ResponseEntity<Saint> createNewSaint(
         @RequestHeader(value = "Authorization", required = false) String authHeader,
-        @Valid @RequestBody SaintRequest saintRequest) {
+        @Valid @RequestBody SaintRequest saintRequest) throws MethodArgumentNotValidException{
 
             if(authHeader == null || !authHeader.equals(EXPECTED_TOKEN)){
                 System.out.println("SECURITY ALERT: Blocked an unauthorized request!");
@@ -57,13 +56,13 @@ public class SaintController {
     }
 
     @GetMapping("/{month}")
-    public Page<Saint> findByMonth(@PathVariable int month, Pageable p) {
-        return service.findByMonth(month, p);
+    public List<Saint> findByMonth(@PathVariable int month){
+        return service.findByMonth(month);
     }
 
     @GetMapping("/search")
-    public Page<Saint> findByPatronageContainingIgnoreCase(@RequestParam String keyword, Pageable p) {
-         return service.findByPatronageContainingIgnoreCase(keyword, p);
+    public List<Saint> findByPatronageContainingIgnoreCase(@RequestParam String keyword) {
+         return service.findByPatronageContainingIgnoreCase(keyword);
     }
 
     @GetMapping("")

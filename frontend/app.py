@@ -46,15 +46,18 @@ def saveSaint():
                 "description": request.form.get('description'),
                 "isMartyr": request.form.get('isMartyr') == 'on'
             }
-            API_KEY = "Bearer my-super-secret-key-123"
+            API_KEY = "my-super-secret-key-123"
 
             # Key to standard HTTP header
             headers = {
                  "Authorization": f"Bearer {API_KEY}"
             }
 
-            requests.post("http://api:8080/api/saints", json=saint, headers=headers)
-            return render_template("index.html", f_msg=saint)
+            response = requests.post("http://api:8080/api/saints", json=saint, headers=headers)
+            if response.status_code == 200:
+                return render_template("index.html", f_msg=saint)
+            else:
+                return render_template("index.html", f_msg=f"Status Code: {response.status_code}") 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
