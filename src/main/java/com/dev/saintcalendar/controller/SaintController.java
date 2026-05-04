@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,8 +70,22 @@ public class SaintController {
     public List<Saint> gettAllSaints() {
         return service.findeAll();
     }
+
+    /**
+     * returns the deletet Saint if exists
+     * else null
+    **/
+    @DeleteMapping("/delete/{saintId}")
+    public String deleteSaint(@PathVariable long saintId) {
+        try {
+            service.deleteById((long)saintId);
+            return "User " + saintId + " deleted successfully!";
+        }
+        catch(Exception  e) {
+            return "ERROR: Could NOT deleted " + saintId;
+        }
     
-    
+    }
     
     
     

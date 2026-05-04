@@ -2,16 +2,20 @@
 <ul>
     {% for saint in saints %}
     <li>
-        <strong>{{ saint.name }}</strong> - 
-        Feast Day: {{ saint.day }}/{{ saint.month }}
-        {% if saint.is_martyr %} (Martyr) {% endif %}
+        <form action="/deleteSaint/" method="post">
+            <strong>{{ saint.name }}</strong> - 
+            Feast Day: {{ saint.day }}/{{ saint.month }}
+            {% if saint.is_martyr %} (Martyr) {% endif %}
+            <input type="hidden" name="saint_id" value="{{ saint.id }}">
+            <button name="delete_btn" type="submit"> Delete</button>
+        </form>
     </li>
     {% endfor %}
 </ul>
 
 <br><br>
 <h2>Create a Saint</h2>
-<form action="/saveSaint/", method="post">
+<form action="/saveSaint/" method="post">
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name"><br>
 

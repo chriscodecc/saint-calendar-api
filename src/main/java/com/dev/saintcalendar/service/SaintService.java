@@ -71,5 +71,15 @@ public class SaintService {
     public List<Saint> findeAll(){
         return repository.findAllByOrderByMonthAsc();
     }
+
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+
+    public Saint findById(Long saintId) {
+        return repository.findById(saintId).orElse(null);
+    }
     
 }
