@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Min;
 
 import java.util.List;
 
+import com.dev.saintcalendar.model.Relic;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 
@@ -24,5 +26,8 @@ public record SaintRequest(
     String tropar,
     String kondak,
     boolean isMartyr,
-    List<QuoteRequest> quotes
+    List<QuoteRequest> quotes,
+    List<Relic> relics,
+    String imageLink,
+    List<String> link_url
 ) { } 

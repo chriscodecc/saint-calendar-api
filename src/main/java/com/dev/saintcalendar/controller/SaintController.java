@@ -34,7 +34,7 @@ public class SaintController {
 
     private static final Logger logger = LoggerFactory.getLogger(SaintController.class);
     private final SaintService service;
-    private final String EXPECTED_TOKEN = "Bearer my-super-secret-key-123";
+    private final String EXPECTED_TOKEN = "my-super-secret-key-123";
 
     public SaintController(SaintService service){
         this.service = service;
@@ -46,8 +46,12 @@ public class SaintController {
         @RequestHeader(value = "Authorization", required = false) String authHeader,
         @Valid @RequestBody SaintRequest saintRequest) throws MethodArgumentNotValidException{
 
+            if(authHeader != null && authHeader.startsWith("Bearer ")) {
+                authHeader = authHeader.replace("Bearer ", "");
+            }
+
             if(authHeader == null || !authHeader.equals(EXPECTED_TOKEN)){
-                System.out.println("SECURITY ALERT: Blocked an unauthorized request!");
+                System.out.println("SECURITY ALERT: Blocked an unauthorized request! " + authHeader );
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
             }
 

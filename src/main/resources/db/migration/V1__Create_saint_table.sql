@@ -3,9 +3,11 @@ CREATE TABLE saint (
         name VARCHAR(255) NOT NULL,
         day INT NOT NULL,
         month INT NOT NULL,
-        patronage VARCHAR(255),
+        patronage TEXT,
         description TEXT,
         tropar TEXT,
         kondak TEXT,
-        is_martyr BOOLEAN NOT NULL
+        is_martyr BOOLEAN NOT NULL,
+        imageLink VARCHAR(255)
+
     );

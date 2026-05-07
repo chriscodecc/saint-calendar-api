@@ -48,7 +48,11 @@ def saveSaint():
                 "tropar": request.form.get('tropar'),
                 "kondak": request.form.get('kondak'),
                 "description": request.form.get('description'),
-                "isMartyr": request.form.get('isMartyr') == 'on'
+                "isMartyr": request.form.get('isMartyr') == 'on',
+                "quotes" : None, 
+                "relics" : None,
+                "imageLike" : "www.google.com",
+                "link_url" : None
             }
             
 
