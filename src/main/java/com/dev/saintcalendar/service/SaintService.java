@@ -81,5 +81,10 @@ public class SaintService {
     public Saint findById(Long saintId) {
         return repository.findById(saintId).orElse(null);
     }
+
+
+    public List<Saint> findByDayAndMonth(int day, int month) {
+        return repository.findByDayAndMonth(day, month);
+    }
     
 }

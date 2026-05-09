@@ -1,48 +1,147 @@
-<h1>Saint Calendar</h1>
-<ul>
-    {% for saint in saints %}
-    <li>
-        <form action="/deleteSaint/" method="post">
-            <strong>{{ saint.name }}</strong> - 
-            Feast Day: {{ saint.day }}/{{ saint.month }}
-            {% if saint.is_martyr %} (Martyr) {% endif %}
-            <input type="hidden" name="saint_id" value="{{ saint.id }}">
-            <button name="delete_btn" type="submit"> Delete</button>
-        </form>
-    </li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthodoxe Heiligen der deutschen Lande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-<br><br>
-<h2>Create a Saint</h2>
-<form action="/saveSaint/" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
+    <header>
+        <h1>Orthodoxe Heilige der deutschen Lande</h1>
+        <h2>Heilige des Tages</h2>
+        <div class="calendar-nav">
+            <!-- Link to the Previous Day -->
+            <a href="{{ url_for('home', day=prev_date.day, month=prev_date.month, year=prev_date.year) }}" class="nav-btn">&lt;</a>
+            
+            <span class="calendar-date">{{ today_date }}</span>
+            
+            <!-- Link to the Next Day -->
+            <a href="{{ url_for('home', day=next_date.day, month=next_date.month, year=next_date.year) }}" class="nav-btn">&gt;</a>
+        </div>
+    </header>
 
-    <label for="day">Day:</label><br>
-    <input type="number" id="day" name="day"><br>
+    <div class="container">
+        <!-- Display the Main Saint (First in the list) -->
+        {% if saintsoftheday %}
+            <!-- 1. Use the selected index instead of hardcoding [0] -->
+            {% set main_saint = saintsoftheday[selected_idx] %}
+            
+            <main class="main-saint">
+                <div class="saint-header">
+                    <h2>
+                        {{ main_saint.name }}
+                        {% if main_saint.is_martyr %}
+                            <span class="martyr-badge">✝ Märtyrer</span>
+                        {% endif %}
+                    </h2>
+                    {% if main_saint.patronage %}
+                        <div class="patronage">Patronat: {{ main_saint.patronage }}</div>
+                    {% endif %}
+                </div>
 
-    <label for="month">Month:</label><br>
-    <input type="number" id="month" name="month"><br>
+                {% if main_saint.image_link %}
+                    <img class="saint-icon" src="{{ main_saint.image_link }}" alt="Ikone von {{ main_saint.name }}">
+                {% endif %}
 
-    <label for="patronage">patronage:</label><br>
-    <input type="text" id="patronage" name="patronage"><br>
+                <div class="liturgy-section">
+                    {% if main_saint.tropar %}
+                    <div class="liturgy-box">
+                        <h3>Troparion</h3>
+                        <p>{{ main_saint.tropar }}</p>
+                    </div>
+                    {% endif %}
 
-    <label for="tropar">tropar:</label><br>
-    <input type="text" id="tropar" name="tropar"><br>
+                    {% if main_saint.kondak %}
+                    <div class="liturgy-box">
+                        <h3>Kontakion</h3>
+                        <p>{{ main_saint.kondak }}</p>
+                    </div>
+                    {% endif %}
+                </div>
 
-    <label for="kondak">kondak:</label><br>
-    <input type="text" id="kondak" name="kondak"><br>
+                {% if main_saint.description %}
+                    <div class="description">
+                        <h3>Vita</h3>
+                        <p>{{ main_saint.description }}</p>
+                    </div>
+                {% endif %}
 
-    <label for="description">description:</label><br>
-    <input type="text" id="description" name="description"><br>
+                <!-- Handle the Quote Objects -->
+                {% if main_saint.quotes and main_saint.quotes|length > 0 %}
+                    <!-- Pick a random quote object from the list -->
+                    {% set random_quote = main_saint.quotes | random %}
+                    <blockquote>
+                        "{{ random_quote.text }}"
+                        
+                        <!-- Check if a source exists before trying to render it -->
+                        {% if random_quote.source %}
+                            <br>
+                            <small style="display: block; margin-top: 10px; color: #555;">
+                                — {{ random_quote.source }}
+                            </small>
+                        {% endif %}
+                    </blockquote>
+                {% endif %}
 
-    <label for="isMartyr">Is a Martyr:</label><br>
-    <input type="checkbox" id="isMartyr" name="isMartyr"><br>
+                <!-- 3. Handle the Relic Objects and the 'verified' boolean -->
+                {% if main_saint.relics and main_saint.relics|length > 0 %}
+                    <div class="relics">
+                        <h3>Orte der Reliquien</h3>
+                        <ul class="relics-list">
+                            {% for relic in main_saint.relics %}
+                                <li>
+                                    <a href="https://www.google.com/maps/search/?api=1&query={{ relic.location }}" target="_blank">
+                                        📍 {{ relic.location }}
+                                    </a>
+                                    
+                                    {% if relic.verified %}
+                                        <span class="verified">✓ Verifiziert</span>
+                                    {% else %}
+                                        <span class="unverified">? Unverifiziert</span>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
 
-    <button name="save_btn" type="submit"> Save</button>
-</form>
+           <!-- 2. Sidebar for the REST of the saints -->
+            {% if saintsoftheday|length > 1 %}
+            <aside class="sidebar">
+                <h3>Weitere Heilige</h3>
+                <ul class="other-saints-list">
+                    <!-- Loop through numbers (0, 1, 2...) based on how many saints there are -->
+                    {% for i in range(saintsoftheday|length) %}
+                        
+                        <!-- Only show the saint in the sidebar if they are NOT the currently selected main saint -->
+                        {% if i != selected_idx %}
+                            {% set saint = saintsoftheday[i] %}
+                            <li>
+                                <a href="{{ url_for('home', day=current_date.day, month=current_date.month, year=current_date.year, idx=i) }}" class="saint-link"></a>
+                                <!-- Create a clickable link that passes the index back to Flask -->
+                                <a href="{{ url_for('home', idx=i) }}" class="saint-link">
+                                    <strong>{{ saint.name }}</strong><br>
+                                    {% if saint.is_martyr %} 
+                                        <span class="martyr-badge-small">Märtyrer</span> 
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        
+                    {% endfor %}
+                </ul>
+            </aside>
+            {% endif %}
 
-{% if f_msg %}
-    {{ f_msg | tojson }} 
-{% endif %}
+        {% else %}
+            <main class="main-saint">
+                <h2>Keine Daten gefunden</h2>
+                <p>Für diesen Tag sind noch keine Heiligen im System hinterlegt.</p>
+            </main>
+        {% endif %}
+    </div>
+
+</body>
+</html>

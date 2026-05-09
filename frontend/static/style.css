@@ -1,0 +1,235 @@
+
+:root {
+    --church-red: #721c24;
+    --gold: #c5a059;
+    --parchment: #fdfbf7;
+    --text-dark: #2c2c2c;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--parchment);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    /* The linear-gradient acts as a dark red overlay on top of your image */
+    background-image: 
+        linear-gradient(rgba(114, 28, 36, 0.85), rgba(20, 0, 0, 0.7)), 
+        url('/static/JesusChrist.jpg');
+    
+    /* These properties ensure the image fits perfectly */
+    background-size: cover;
+    background-position: center 30%; /* Adjusts the focal point slightly down */
+    background-repeat: no-repeat;
+    
+    color: var(--gold);
+    text-align: center;
+    
+    /* I increased the padding slightly so more of the beautiful image is visible */
+    padding: 4rem 1rem; 
+    border-bottom: 5px solid var(--gold);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.calendar-date {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Main Saint Section */
+.main-saint {
+    flex: 3;
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid #e0d8c3;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.saint-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.saint-header h2 {
+    color: var(--church-red);
+    font-size: 2.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.martyr-badge {
+    color: #d9534f;
+    font-size: 1rem;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.patronage {
+    font-style: italic;
+    color: #666;
+}
+
+.saint-icon {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border: 4px solid var(--gold);
+    border-radius: 4px;
+    margin: 1rem auto;
+    display: block;
+}
+
+/* Liturgical Texts */
+.liturgy-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.liturgy-box {
+    flex: 1;
+    background-color: var(--parchment);
+    padding: 1.5rem;
+    border-left: 4px solid var(--gold);
+}
+
+.liturgy-box h3 {
+    margin-top: 0;
+    color: var(--church-red);
+    font-size: 1.2rem;
+}
+
+.description {
+    margin-top: 2rem;
+    text-align: justify;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    text-align: center;
+    color: var(--church-red);
+}
+
+/* Relics Section */
+.relics-list {
+    list-style: none;
+    padding: 0;
+}
+
+.relics-list li {
+    background: var(--parchment);
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border: 1px solid #e0d8c3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.relics-list a {
+    color: var(--church-red);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.relics-list a:hover {
+    text-decoration: underline;
+}
+
+.verified { color: green; font-size: 0.9rem; }
+.unverified { color: orange; font-size: 0.9rem; }
+
+/* Sidebar for other saints */
+.sidebar {
+    flex: 1;
+}
+
+.sidebar h3 {
+    color: var(--church-red);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.other-saints-list {
+    list-style: none;
+    padding: 0;
+}
+
+.other-saints-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Makes the entire list item a clickable block */
+.saint-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+/* Adds a subtle hover effect */
+.saint-link:hover {
+    background-color: #f0e9d8; /* A slightly darker parchment color */
+}
+
+.martyr-badge-small {
+    color: #d9534f; 
+    font-size: 0.8rem;
+}
+
+.calendar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem; /* Spaces out the arrows and the text */
+        margin-top: 0.5rem;
+    }
+
+.calendar-date {
+        font-size: 1.3rem;
+        font-style: italic;
+        margin: 0; /* Removing the old margin since flexbox handles spacing now */
+    }
+
+.nav-btn {
+        color: var(--gold);
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 0 10px;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    /* Makes the arrows 'pop' slightly when the mouse is over them */
+.nav-btn:hover {
+        transform: scale(1.2);
+        color: #ffffff; 
+    }

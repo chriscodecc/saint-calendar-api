@@ -1,0 +1,89 @@
+[
+   {
+    "name": "Bonifatius von Fulda",
+    "day": 9,
+    "month": 5,
+    "is_martyr": true,
+    "patronage": "Deutschland, Thüringen, Bistum Mainz, Fulda",
+    "tropar": null,
+    "kondak": null,
+    "description": "Bonifatius, (* um 673/4/5 in Crediton; † 5. Juni 754 oder 755 bei Dokkum in Friesland), war Missionar, Klostergründer (darunter Fulda) und Bischof von Mainz und Utrecht. Aufgrund seiner umfangreichen Missionstätigkeit im damals noch überwiegend heidnischen Germanien wird er seit dem 16. Jahrhundert als „Apostel der Deutschen“ verehrt.",
+    "quotes": [
+      {
+        "text": "Lasset uns nicht stumme Hunde sein, nicht schweigende Wächter, nicht Mietlinge, die vor dem Wolf fliehen, sondern wachsame Hirten, die über die Herde Christi wachen.",
+        "source": "Brief an Erzbischof Cuthbert von Canterbury (747 n. Chr.)"
+      }
+    ],
+    "relics": [
+      {
+        "type": "Gebeine (Tomb)",
+        "location": "Dom zu Fulda, Deutschland",
+        "verified": true,
+        "description": "Das Grab des heiligen Bonifatius befindet sich in der Krypta des Fuldaer Domes.",
+        "coordinate": {
+          "latitude": 50.5541,
+          "longitude": 9.6717
+        }
+      }
+    ],
+    "link_url": [
+      "https://orthpedia.de/index.php/Bonifatius",
+      "https://www.heiligenlexikon.de/BiographienB/Bonifatius_Winfried.htm"
+    ],
+    "imageLink": "https://orthpedia.de/images/4/4b/Der-heilige-Bonifatius.jpg"
+  },
+  {
+    "name": "Abrunkulus, Bischof von Trier",
+    "day": 9,
+    "month": 5,
+    "is_martyr": false,
+    "patronage": "Trier",
+    "description": "Stammt vermutlich aus Frankreich. Vorgängerbischof von Nicetius von Trier. (* unbekannt, + um 525)",
+    "imageLink": "https://www.heiligenlexikon.de/Fotos/Abrunculus_von_Trier.jpg"
+  },
+  {
+    "name": "Adalar (Adolar, Adalher)",
+    "day": 9,
+    "month": 5,
+    "is_martyr": true,
+    "patronage": "Friesenmission, evtl. Erfurt",
+    "description": "Möglicherweise war er Bischof von Erfurt. Begleiter des hl. Bonifatius, mit ihm das Martyrium erlitten. (* unbekannt, + 5. Juni 754)",
+    "imageLink": null
+  },
+  {
+    "name": "Adalbert, Abt am Tegernsee",
+    "day": 9,
+    "month": 5,
+    "is_martyr": false,
+    "patronage": "Tegernsee",
+    "description": "Stammt vmtl. aus Bayern. Gründer des Klosters am Tegernsee im Jahr 746. Das Kloster wurde mit Mönchen aus St. Gallen ergänzt. (* unbekannt, + 771 oder 800)",
+    "imageLink": null
+  },
+  {
+    "name": "Oatkar, Mönch",
+    "day": 8,
+    "month": 5,
+    "is_martyr": false,
+    "patronage": "Tegernsee",
+    "description": "Bruder von Adalbert. Mitgründer des Klosters am Tegernsee. (* unbekannt, + 01.11.804)",
+    "imageLink": null
+  },
+  {
+    "name": "Adula von Pfalzel, Äbtissin",
+    "day": 8,
+    "month": 5,
+    "is_martyr": false,
+    "patronage": "Pfalzel bei Trier",
+    "description": "Lebte früh als Witwe, gründete um 700 das Frauenkloster Pfalzel und wurde erste Äbtissin. (* um 660, + nach 732)",
+    "imageLink": null
+  },
+  {
+    "name": "Afra von Augsburg",
+    "day": 10,
+    "month": 5,
+    "is_martyr": true,
+    "patronage": "Augsburg",
+    "description": "Stammt evtl. aus Zypern oder aus Afrika. Vermutlich enthauptet. Ein ältere Legende erzählt von einer Verbrennung auf dem Lechfeld bei Augsburg. (+ 304 in Friedberg)",
+    "imageLink": null
+  }
+]

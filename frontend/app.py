@@ -4,33 +4,55 @@ import os
 import json
 from typing import Final
 import time
+from datetime import date, timedelta
 
 app = Flask(__name__)
 API_KEY: Final = "my-super-secret-key-123"
+BACKEND_URL: Final = os.getenv("BACKEND_URL", "http://api:8080")
+api_url: Final = f"{BACKEND_URL}/api/saints"
 
 @app.route("/", methods=["GET", "POST"])
-def home():
-    # Fetch the URL from Docker environment, or default to 'api'
-    BACKEND_URL = os.getenv("BACKEND_URL", "http://api:8080")
-    api_url = f"{BACKEND_URL}/api/saints"
+@app.route("/saint/<int:day>/<int:month>/<int:year>", methods=["GET", "POST"])
+def home(day=None, month=None, year=None):
 
-    time.sleep(1)
+    if day and month and year:
+        try:
+            today = date(year, month, day)
+        except ValueError:
+            return "Error: Invalid date provided in the URL.", 400
+    else:
+        today = date.today()
+
+    today_formatted = today.strftime("%d.%m.%Y")
+
+    prev_date = today - timedelta(days=1)
+    next_date = today + timedelta(days=1)
+
     try:
-        # send a get to the api 
-        response = requests.get(api_url)
+        response = requests.get(api_url + "/saintOfTheDay/day_" + str(today.day) + "/month_" + str(today.month))
         response.raise_for_status()
 
         if response.status_code == 200:
             # convert json response to a python dic
-            json_data = response.json()
+            saint_list = response.json()
 
-            #Scaleble so it can be a dict or a lsit 
-            if isinstance(json_data, dict):
-                saint_list = json_data("content", [])
-            else:
-                saint_list = json_data
+            # Get the requested index from the URL (defaults to 0)
+            selected_idx = request.args.get('idx', 0, type=int)
+            # Safety check
+            if saint_list and selected_idx >= len(saint_list):
+                selected_idx = 0
 
-            return render_template("index.html", saints=saint_list)
+            print("DEBUG: " + str(saint_list), flush=True)
+
+            return render_template(
+                "index.html", 
+                saintsoftheday=saint_list, 
+                today_date=today_formatted,
+                current_date=today,
+                selected_idx=selected_idx,
+                prev_date=prev_date,
+                next_date=next_date
+            )
         
         else:
            return f"API Error: {response.status_code}" 
@@ -90,6 +112,29 @@ def deleteSaint():
         print(f"Connection error: {e}", flush=True)
 
     return redirect(url_for('home'))
+
+@app.route("/saintOfTheDay/", methods=['GET', 'POST'])
+def saintOfTheDay():
+    today = date.today()
+    try:
+        response = requests.get(api_url + "/saintOfTheDay/day_" + str(today.day) + "/month_" + str(today.month))
+        response.raise_for_status()
+
+        if response.status_code == 200:
+            json_data = response.json()
+
+            if isinstance(json_data, dict):
+                saint_list = json.loads(json_data)
+            else:
+                saint_list = json_data
+
+            return render_template("index.html", saintsoftheday=saint_list)
+        
+        else:
+           return f"API Error: {response.status_code}" 
+    
+    except Exception as e:
+        return f"Connection Failed: {e}"
 
 
 @app.route('/favicon.ico')

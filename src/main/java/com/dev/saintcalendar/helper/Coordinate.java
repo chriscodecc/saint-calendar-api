@@ -10,11 +10,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Embeddable
 public class Coordinate {
-    private Double x;
-    private Double y;
+    private Double latitude;
+    private Double longitude;
 
-    public Coordinate(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Coordinate(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }

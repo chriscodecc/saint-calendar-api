@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.apache.coyote.BadRequestException;
+import org.aspectj.weaver.ast.Not;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
 import java.util.List;
 
 
@@ -75,21 +78,31 @@ public class SaintController {
         return service.findeAll();
     }
 
+    @GetMapping("/saintOfTheDay/day_{day}/month_{month}")
+    public List<Saint> getSaintOfTheDay(@PathVariable int day, @PathVariable int month) {
+        System.out.println("DEBUG: " + day + ":" + month);
+        return service.findByDayAndMonth(day, month);
+    }
+    
+
     /**
      * returns the deletet Saint if exists
      * else null
     **/
     @DeleteMapping("/delete/{saintId}")
-    public String deleteSaint(@PathVariable long saintId) {
+    public ResponseEntity<Void> deleteSaint(@PathVariable long saintId) {
         try {
             service.deleteById((long)saintId);
-            return "User " + saintId + " deleted successfully!";
+            return ResponseEntity.ok().build();
         }
-        catch(Exception  e) {
-            return "ERROR: Could NOT deleted " + saintId;
+        catch(Exception e) {
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Saint Not Found"
+            );
         }
-    
     }
+
+
     
     
     
