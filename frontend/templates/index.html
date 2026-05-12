@@ -22,6 +22,19 @@
         </div>
     </header>
 
+    <section class="daily-inspiration">
+        <div class="inspiration-content">
+            <p>
+                Der heilige Johannes war der Überzeugung, dass es – in welchem ​​Land 
+                auch immer sich ein orthodoxer Christ befand – in seiner Verantwortung 
+                lag, dessen nationale und lokalen Heiligen zu verehren und zu ihnen zu beten.
+            </p>
+            <cite>Priestermönch Damascene - A True Student of the Saints </cite>
+        </div>
+    </section>
+
+    <div class="container">
+
     <div class="container">
         <!-- Display the Main Saint (First in the list) -->
         {% if saintsoftheday %}
@@ -31,7 +44,14 @@
             <main class="main-saint">
                 <div class="saint-header">
                     <h2>
-                        {{ main_saint.name }}
+                       {% if main_saint.link_url and main_saint.link_url|length > 0 %}
+                            <a href="{{ main_saint.link_url[0] }}" target="_blank" class="saint-title-link">
+                                {{ main_saint.name }}
+                            </a>
+                        {% else %}
+                            {{ main_saint.name }}
+                        {% endif %}
+
                         {% if main_saint.is_martyr %}
                             <span class="martyr-badge">✝ Märtyrer</span>
                         {% endif %}
@@ -119,9 +139,7 @@
                         {% if i != selected_idx %}
                             {% set saint = saintsoftheday[i] %}
                             <li>
-                                <a href="{{ url_for('home', day=current_date.day, month=current_date.month, year=current_date.year, idx=i) }}" class="saint-link"></a>
-                                <!-- Create a clickable link that passes the index back to Flask -->
-                                <a href="{{ url_for('home', idx=i) }}" class="saint-link">
+                                <a href="{{ url_for('home', day=current_date.day, month=current_date.month, year=current_date.year, idx=i) }}" class="saint-link">
                                     <strong>{{ saint.name }}</strong><br>
                                     {% if saint.is_martyr %} 
                                         <span class="martyr-badge-small">Märtyrer</span> 

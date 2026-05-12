@@ -16,31 +16,34 @@ body {
 }
 
 header {
-    /* The linear-gradient acts as a dark red overlay on top of your image */
-    background-image: 
-        linear-gradient(rgba(114, 28, 36, 0.85), rgba(20, 0, 0, 0.7)), 
-        url('/static/JesusChrist.jpg');
-    
-    /* These properties ensure the image fits perfectly */
-    background-size: cover;
-    background-position: center 30%; /* Adjusts the focal point slightly down */
-    background-repeat: no-repeat;
-    
-    color: var(--gold);
-    text-align: center;
-    
-    /* I increased the padding slightly so more of the beautiful image is visible */
-    padding: 4rem 1rem; 
-    border-bottom: 5px solid var(--gold);
-}
+            background-image: 
+                linear-gradient(rgba(114, 28, 36, 0.85), rgba(20, 0, 0, 0.7)), 
+                url('/static/JesusChrist.jpg'); /* Adjust path if needed based on url_for */
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            color: var(--gold);
+            text-align: center;
+            
+            /* CHANGE: Reduced padding from 4rem to 1.5rem top/bottom */
+            padding: 1.2rem 1rem; 
+            border-bottom: 4px solid var(--gold);
+    }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+    header h1 {
+        margin: 0;
+        /* CHANGE: Slightly smaller font size */
+        font-size: 1.8rem; 
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    header h2 {
+        /* CHANGE: Added a small margin to tighten the spacing */
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+    }
 
 .calendar-date {
     font-size: 1.2rem;
@@ -54,16 +57,19 @@ header h1 {
     padding: 0 1rem;
     display: flex;
     gap: 2rem;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* Main Saint Section */
 .main-saint {
-    flex: 3;
-    background: #fff;
+    background: white;
+    border-radius: 12px;
     padding: 2rem;
-    border: 1px solid #e0d8c3;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Weicher Schatten für Tiefe */
+    position: relative; /* Wichtig für die Schichtung */
+    z-index: 2;
+    margin-top: 0;
 }
 
 .saint-header {
@@ -209,12 +215,12 @@ blockquote {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1.5rem; /* Spaces out the arrows and the text */
-        margin-top: 0.5rem;
+        gap: 1rem; /* Spaces out the arrows and the text */
+        margin-top: 0.2rem;
     }
 
 .calendar-date {
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-style: italic;
         margin: 0; /* Removing the old margin since flexbox handles spacing now */
     }
@@ -222,7 +228,7 @@ blockquote {
 .nav-btn {
         color: var(--gold);
         text-decoration: none;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         font-weight: bold;
         padding: 0 10px;
         transition: transform 0.2s ease, color 0.2s ease;
@@ -232,4 +238,60 @@ blockquote {
 .nav-btn:hover {
         transform: scale(1.2);
         color: #ffffff; 
-    }
+}
+
+.saint-title-link {
+    color: inherit; /* Keeps the text your church-red color */
+    text-decoration: none; /* Removes the underline */
+    transition: opacity 0.2s ease;
+}
+
+.saint-title-link:hover {
+    opacity: 0.7; /* Fades slightly when hovered */
+    text-decoration: underline; /* Optional: adds underline only on hover */
+}
+
+.daily-inspiration {
+    background-color: #fdfaf3;
+    padding: 0.5rem 1rem 4rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0d5b8;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: -3.5rem; 
+    border-bottom: none;
+}
+
+.inspiration-content {
+    max-width: 800px;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.inspiration-content p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    color: #5a4a3a;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+/* Stil für den Verfasser */
+.inspiration-content cite {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gold); /* Nutze deine Gold-Variable */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Optionale Zierlinie oben drüber */
+.inspiration-content::before {
+    content: "◈";
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+}
