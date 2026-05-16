@@ -8,6 +8,7 @@ import com.dev.saintcalendar.dto.SaintRequest;
 import com.dev.saintcalendar.model.Saint;
 import com.dev.saintcalendar.service.SaintService;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -90,16 +91,10 @@ public class SaintController {
      * else null
     **/
     @DeleteMapping("/delete/{saintId}")
-    public ResponseEntity<Void> deleteSaint(@PathVariable long saintId) {
-        try {
-            service.deleteById((long)saintId);
-            return ResponseEntity.ok().build();
-        }
-        catch(Exception e) {
-            throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Saint Not Found"
-            );
-        }
+    public ResponseEntity<Void> deleteSaint(@PathVariable long saintId) throws EntityNotFoundException{
+        service.deleteById(saintId);
+        return ResponseEntity.ok().build();
+
     }
 
 
